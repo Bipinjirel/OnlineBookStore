@@ -1,0 +1,463 @@
+/* Base Styles with Green/White Theme */
+:root {
+  --primary-green: #2e7d32;
+  --primary-green-light: #4caf50;
+  --primary-green-dark: #1b5e20;
+  --secondary-green: #81c784;
+  --accent-green: #a5d6a7;
+  --white: #ffffff;
+  --light-gray: #f8f9fa;
+  --text-dark: #333333;
+  --text-muted: #6c757d;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--light-gray);
+}
+
+/* Bookie Navbar Styles */
+.navbar-bookie {
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-dark) 100%) !important;
+  box-shadow: 0 2px 10px rgba(46, 125, 50, 0.3);
+  padding: 0.75rem 0;
+}
+
+.hero {
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-dark) 100%);
+  color: white;
+  padding: 80px 30px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 20px rgba(46, 125, 50, 0.3);
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+}
+
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-bookie .navbar-brand {
+  font-weight: 700;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--white) !important;
+}
+
+.brand-icon {
+  font-size: 1.8rem;
+}
+
+.brand-text {
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.nav-link-bookie {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 500;
+  padding: 0.5rem 1rem !important;
+  margin: 0 0.25rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.nav-link-bookie:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff !important;
+  transform: translateY(-2px);
+}
+
+/* Search Bar Styles */
+.search-container-bookie {
+  max-width: 450px;
+  flex: 1;
+}
+
+.input-group-bookie {
+  background-color: #fff;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.search-icon-bookie {
+  color: var(--primary-green);
+  margin-right: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.form-control-bookie {
+  border: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.95rem;
+}
+
+.form-control-bookie:focus {
+  outline: none;
+}
+
+.form-control-bookie::placeholder {
+  color: #999;
+}
+
+.search-results-bookie {
+  max-height: 350px;
+  overflow-y: auto;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+.search-result-item-bookie {
+  transition: background-color 0.2s ease;
+}
+
+.search-result-item-bookie:hover {
+  background-color: #f0f7f0;
+}
+
+/* Cart and User Icons */
+.nav-link-icon-bookie {
+  color: #fff !important;
+  font-size: 1.3rem;
+  padding: 0.5rem 0.75rem !important;
+  margin: 0 0.25rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.nav-link-icon-bookie:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.cart-badge-bookie {
+  background-color: #fff !important;
+  color: var(--primary-green) !important;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+/* Cards */
+.card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-dark) 100%);
+  color: white;
+  border-radius: 12px 12px 0 0 !important;
+  font-weight: 600;
+}
+
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-dark) 100%);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, var(--primary-green-dark) 0%, var(--primary-green) 100%);
+  box-shadow: 0 4px 15px rgba(46, 125, 50, 0.4);
+}
+
+.btn-outline-primary {
+  color: var(--primary-green);
+  border-color: var(--primary-green);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary-green);
+  color: #fff;
+}
+
+/* Book Grid */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.book-card {
+  transition: transform 0.3s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Forms */
+.form-control {
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  padding: 12px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 0.2rem rgba(46, 125, 50, 0.25);
+}
+
+/* Alerts */
+.alert {
+  border-radius: 10px;
+  border: none;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-dark) 100%);
+  color: white;
+  padding: 60px 30px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 20px rgba(46, 125, 50, 0.3);
+}
+
+/* Banners */
+.banner-card {
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.banner-new {
+  background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
+}
+
+.banner-sale {
+  background: linear-gradient(135deg, #ff6b35 0%, #e65100 100%);
+}
+
+.banner-discount {
+  background: linear-gradient(135deg, #9c27b0 0%, #6a1b9a 100%);
+}
+
+.banner-content {
+  text-align: center;
+  z-index: 1;
+}
+
+.banner-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.banner-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Book Tags */
+.book-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  z-index: 1;
+}
+
+.tag-new {
+  background-color: var(--primary-green);
+  color: white;
+}
+
+.tag-discount-5 {
+  background-color: #38ef7d;
+  color: #333;
+}
+
+.tag-discount-10 {
+  background-color: #9c27b0;
+  color: white;
+}
+
+.tag-sale {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* Table Styles */
+.table {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table thead {
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-dark) 100%);
+  color: white;
+}
+
+/* Footer */
+footer {
+  margin-top: auto;
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-dark) 100%);
+  color: #fff;
+  padding: 2rem 0;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .search-container-bookie {
+    max-width: 100%;
+    margin: 1rem 0;
+  }
+  
+  .navbar-collapse {
+    background-color: rgba(46, 125, 50, 0.95);
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: 0.5rem;
+  }
+  
+  .nav-link-bookie {
+    padding: 0.75rem 1rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 40px 20px;
+  }
+  
+  .banner-title {
+    font-size: 1.4rem;
+  }
+  
+  .book-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+/* Loading spinner */
+.spinner-border {
+  color: var(--primary-green);
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--primary-green);
+}
+
+/* Price display */
+.price-rs {
+  color: var(--primary-green);
+  font-weight: 600;
+}
+
+/* Dropdown menu styling */
+.dropdown-menu {
+  border: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.dropdown-item {
+  padding: 0.5rem 1rem;
+  transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f7f0;
+  color: var(--primary-green);
+}
+
+/* Navbar toggler for mobile */
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Sticky navbar */
+.sticky-top {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Promo Card Styles */
+.promo-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.promo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2) !important;
+}
+
+.promo-card .card-body {
+  min-height: 180px;
+}
+
+.promo-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.promo-card p {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.promo-card small {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .promo-card h3 {
+    font-size: 1.2rem;
+  }
+  
+  .promo-card .card-body {
+    min-height: 150px;
+    padding: 1.5rem !important;
+  }
+}

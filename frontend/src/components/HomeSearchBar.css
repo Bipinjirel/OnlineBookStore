@@ -1,0 +1,230 @@
+.home-search-container {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.home-search-form {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: white;
+  border-radius: 50px;
+  padding: 0.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s ease;
+}
+
+.home-search-form:focus-within {
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+}
+
+.home-search-input-wrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.home-search-icon {
+  position: absolute;
+  left: 1.25rem;
+  color: #667eea;
+  font-size: 1.2rem;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.home-search-input {
+  width: 100%;
+  padding: 1rem 1.25rem 1rem 3.25rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  color: #333;
+  background: #f8f9fa;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.home-search-input::placeholder {
+  color: #adb5bd;
+}
+
+.home-search-input:focus {
+  background: white;
+  color: #333;
+}
+
+.home-search-input:focus::placeholder {
+  color: #ccc;
+}
+
+.home-search-spinner {
+  position: absolute;
+  right: 1rem;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #667eea;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.home-search-btn {
+  padding: 0.875rem 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.home-search-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.home-search-btn:active {
+  transform: translateY(0);
+}
+
+/* Suggestions dropdown */
+.home-search-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  margin-top: 0.5rem;
+  overflow: hidden;
+  z-index: 1000;
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.home-search-suggestion-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.875rem 1.25rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.home-search-suggestion-item:last-of-type {
+  border-bottom: none;
+}
+
+.home-search-suggestion-item:hover {
+  background-color: #f8f9fa;
+}
+
+.home-search-suggestion-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.home-search-suggestion-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.home-search-suggestion-title {
+  color: #1d3557;
+  font-weight: 600;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.home-search-suggestion-title strong {
+  background-color: #fff3cd;
+  color: #856404;
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+.home-search-suggestion-author {
+  color: #6c757d;
+  font-size: 0.85rem;
+  margin-top: 0.15rem;
+}
+
+.home-search-suggestion-all {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: #f8f9fa;
+  color: #667eea;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.home-search-suggestion-all:hover {
+  background: #e9ecef;
+}
+
+.home-search-suggestion-all i {
+  font-size: 0.85rem;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .home-search-form {
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 1rem;
+  }
+
+  .home-search-input {
+    padding: 0.75rem 1rem 0.75rem 2.75rem;
+    font-size: 1rem;
+  }
+
+  .home-search-btn {
+    width: 100%;
+    padding: 0.75rem 1rem;
+  }
+
+  .home-search-suggestions {
+    left: -0.5rem;
+    right: -0.5rem;
+    border-radius: 12px;
+  }
+}
