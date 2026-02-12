@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
-import { collection, getDocs, query, orderBy } from "firebase/firestore";
+import { collection, getDocs, query } from "firebase/firestore";
 import { db } from "../config/firebase";
+import SearchBar from "../components/SearchBar";
 import "./Books.css";
 
 function Books() {
@@ -17,67 +18,37 @@ function Books() {
     setSearchTerm(query);
   }, [searchParams]);
 
-  // Fetch books from Firestore
+  // Fetch all books from Firestore
   useEffect(() => {
     const fetchBooks = async () => {
       try {
         setLoading(true);
-        
-        // Fetch all books first
-        let booksQuery = query(collection(db, "books"));
-        
-        const snapshot = await getDocs(booksQuery);
-        
-        let booksData = [];
+        const snapshot = await getDocs(collection(db, "books"));
+        const booksData = [];
         snapshot.forEach((doc) => {
           booksData.push({
             id: doc.id,
             ...doc.data(),
           });
         });
-
-        // Sort by createdAt descending if available
-        booksData.sort((a, b) => {
-          if (a.createdAt && b.createdAt) {
-            return new Date(b.createdAt) - new Date(a.createdAt);
-          }
-          return 0;
-        });
-
-        // Apply case-insensitive search filter on title and author
-        if (searchTerm.trim()) {
-          const searchLower = searchTerm.toLowerCase();
-          booksData = booksData.filter(book => 
-            (book.title && book.title.toLowerCase().includes(searchLower)) ||
-            (book.author && book.author.toLowerCase().includes(searchLower))
-          );
-        }
-
         setBooks(booksData);
       } catch (err) {
         console.error("Error fetching books:", err);
-        setBooks([]);
       } finally {
         setLoading(false);
       }
     };
+    fetchBooks();
+  }, []);
 
-    // Debounce the search (300ms delay)
-    const timeoutId = setTimeout(fetchBooks, 300);
-    return () => clearTimeout(timeoutId);
-  }, [searchTerm]);
-
-  const handleSearchChange = (e) => {
-    const value = e.target.value;
-    setSearchTerm(value);
-    
-    // Update URL without page reload
-    if (value.trim()) {
-      navigate(`/books?search=${encodeURIComponent(value)}`, { replace: true });
-    } else {
-      navigate("/books", { replace: true });
-    }
-  };
+  // Filter books based on search term
+  const displayBooks = searchTerm.trim() 
+    ? books.filter(book => {
+        const searchLower = searchTerm.toLowerCase();
+        return (book.title && book.title.toLowerCase().includes(searchLower)) ||
+               (book.author && book.author.toLowerCase().includes(searchLower));
+      })
+    : books;
 
   const clearSearch = () => {
     setSearchTerm("");
@@ -88,44 +59,23 @@ function Books() {
     <div className="books-page">
       <h2 className="books-title">Books Catalog</h2>
 
-      {/* Search Input - Real-time */}
+      {/* Search Bar with Autocomplete */}
       <div className="books-search-container">
-        <div className="books-search-wrapper">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            fill="#6c757d"
-            className="books-search-icon"
-            viewBox="0 0 16 16"
-          >
-            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-          </svg>
-          <input
-            type="text"
-            className="books-search-input"
-            placeholder="Search books by title or author..."
-            value={searchTerm}
-            onChange={handleSearchChange}
-            autoComplete="off"
-          />
-          {searchTerm && (
-            <button className="books-clear-search" onClick={clearSearch}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-              </svg>
-            </button>
-          )}
-        </div>
+        <SearchBar />
+      </div>
+
+      {/* Update search term from URL for display */}
+      <div style={{ display: 'none' }}>
+        {searchTerm !== (searchParams.get("search") || "") && setSearchTerm(searchParams.get("search") || "")}
       </div>
 
       {/* Results count */}
       <p className="books-count">
         {loading ? (
-          "Searching..."
+          "Loading..."
         ) : (
           <>
-            {books.length} book{books.length !== 1 ? 's' : ''} found
+            {displayBooks.length} book{displayBooks.length !== 1 ? 's' : ''} found
             {searchTerm && <span className="books-search-term"> for "{searchTerm}"</span>}
           </>
         )}
@@ -137,9 +87,9 @@ function Books() {
             <span className="visually-hidden">Loading...</span>
           </div>
         </div>
-      ) : books.length > 0 ? (
+      ) : displayBooks.length > 0 ? (
         <div className="books-grid">
-          {books.map((book) => (
+          {displayBooks.map((book) => (
             <div key={book.id} className="book-card">
               <img
                 src={

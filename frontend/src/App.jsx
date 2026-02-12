@@ -15,6 +15,7 @@ import NewReleases from "./pages/NewReleases";
 import Recommendations from "./pages/Recommendations";
 import Audiobooks from "./pages/Audiobooks";
 import Ebooks from "./pages/Ebooks";
+import SeedDatabase from "./pages/SeedDatabase";
 import Profile from "./pages/Profile";
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
             <Route path="/audiobooks" element={<Audiobooks />} />
             <Route path="/ebooks" element={<Ebooks />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/seed" element={<SeedDatabase />} />
 
             {/* Fallback route */}
             <Route
