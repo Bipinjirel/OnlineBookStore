@@ -32,8 +32,9 @@ function Navbar() {
           setUser({
             uid: firebaseUser.uid,
             email: firebaseUser.email,
-            username: firebaseUser.email?.split("@")[0] || "User",
+            username: firebaseUser.displayName || firebaseUser.email?.split("@")[0] || "User",
             isAdmin: false,
+            photoURL: firebaseUser.photoURL,
           });
         }
       } else {
@@ -242,13 +243,21 @@ function Navbar() {
             {isLoggedIn && user && (
               <li className="nav-item dropdown ms-2">
                 <Link
-                  className="nav-link-icon-bookie dropdown-toggle"
+                  className="nav-link-icon-bookie dropdown-toggle d-flex align-items-center"
                   to="#"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  <i className="bi bi-person-circle"></i>
+                  {user.photoURL ? (
+                    <img 
+                      src={user.photoURL} 
+                      alt="Profile" 
+                      className="navbar-user-avatar"
+                    />
+                  ) : (
+                    <i className="bi bi-person-circle" style={{ fontSize: "1.5rem" }}></i>
+                  )}
                 </Link>
                 <ul className="dropdown-menu dropdown-menu-end">
                   <li>
@@ -260,6 +269,12 @@ function Navbar() {
                     </div>
                   </li>
                   <li><hr className="dropdown-divider" /></li>
+                  <li>
+                    <Link className="dropdown-item" to="/profile">
+                      <i className="bi bi-person me-2"></i>
+                      My Profile
+                    </Link>
+                  </li>
                   <li>
                     <Link
                       className="dropdown-item"
