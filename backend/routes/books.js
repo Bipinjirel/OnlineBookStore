@@ -11,10 +11,8 @@ router.get('/', async (req, res) => {
     
     let query = db.collection('books');
     
-    // If no search query, order by createdAt descending
-    if (!search) {
-      query = query.orderBy('createdAt', 'desc');
-    }
+    // Note: We avoid orderBy to prevent Firestore index requirements
+    // Books will be sorted by createdAt in memory if available
     
     if (category) {
       query = query.where('category', '==', category);
@@ -41,6 +39,14 @@ router.get('/', async (req, res) => {
         (book.author && book.author.toLowerCase().includes(searchLower))
       );
     }
+
+    // Sort by createdAt descending if available
+    books.sort((a, b) => {
+      if (a.createdAt && b.createdAt) {
+        return new Date(b.createdAt) - new Date(a.createdAt);
+      }
+      return 0;
+    });
 
     res.json({
       success: true,

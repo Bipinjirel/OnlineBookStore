@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { collection, getDocs, query, orderBy } from "firebase/firestore";
+import { db } from "../config/firebase";
 import "./Books.css";
-
-const API_URL = "http://localhost:5000/books";
 
 function Books() {
   const [books, setBooks] = useState([]);
@@ -17,25 +17,43 @@ function Books() {
     setSearchTerm(query);
   }, [searchParams]);
 
-  // Fetch books with search in real-time
+  // Fetch books from Firestore
   useEffect(() => {
     const fetchBooks = async () => {
       try {
         setLoading(true);
         
-        // Fetch books from backend with search query
-        const url = searchTerm.trim() 
-          ? `${API_URL}?search=${encodeURIComponent(searchTerm)}`
-          : API_URL;
+        // Fetch all books first
+        let booksQuery = query(collection(db, "books"));
         
-        const response = await fetch(url);
-        const data = await response.json();
+        const snapshot = await getDocs(booksQuery);
         
-        if (data.success) {
-          setBooks(data.data || []);
-        } else {
-          setBooks([]);
+        let booksData = [];
+        snapshot.forEach((doc) => {
+          booksData.push({
+            id: doc.id,
+            ...doc.data(),
+          });
+        });
+
+        // Sort by createdAt descending if available
+        booksData.sort((a, b) => {
+          if (a.createdAt && b.createdAt) {
+            return new Date(b.createdAt) - new Date(a.createdAt);
+          }
+          return 0;
+        });
+
+        // Apply case-insensitive search filter on title and author
+        if (searchTerm.trim()) {
+          const searchLower = searchTerm.toLowerCase();
+          booksData = booksData.filter(book => 
+            (book.title && book.title.toLowerCase().includes(searchLower)) ||
+            (book.author && book.author.toLowerCase().includes(searchLower))
+          );
         }
+
+        setBooks(booksData);
       } catch (err) {
         console.error("Error fetching books:", err);
         setBooks([]);

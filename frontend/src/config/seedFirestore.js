@@ -11,7 +11,8 @@ export async function seedBooks() {
       cover_image: "https://covers.openlibrary.org/b/id/7222246-L.jpg",
       stock: 20,
       category: "Fiction",
-      rating: 4.5
+      rating: 4.5,
+      createdAt: new Date().toISOString()
     },
     {
       title: "1984",
@@ -21,7 +22,8 @@ export async function seedBooks() {
       cover_image: "https://covers.openlibrary.org/b/id/12624314-L.jpg",
       stock: 25,
       category: "Science Fiction",
-      rating: 4.7
+      rating: 4.7,
+      createdAt: new Date().toISOString()
     },
     {
       title: "Pride and Prejudice",
@@ -31,7 +33,8 @@ export async function seedBooks() {
       cover_image: "https://covers.openlibrary.org/b/id/12645114-L.jpg",
       stock: 18,
       category: "Romance",
-      rating: 4.6
+      rating: 4.6,
+      createdAt: new Date().toISOString()
     },
     {
       title: "The Hobbit",
@@ -41,7 +44,8 @@ export async function seedBooks() {
       cover_image: "https://covers.openlibrary.org/b/id/6979861-L.jpg",
       stock: 30,
       category: "Fantasy",
-      rating: 4.8
+      rating: 4.8,
+      createdAt: new Date().toISOString()
     },
     {
       title: "To Kill a Mockingbird",
@@ -51,7 +55,8 @@ export async function seedBooks() {
       cover_image: "https://covers.openlibrary.org/b/id/8226191-L.jpg",
       stock: 15,
       category: "Fiction",
-      rating: 4.8
+      rating: 4.8,
+      createdAt: new Date().toISOString()
     },
     {
       title: "The Alchemist",
@@ -61,7 +66,8 @@ export async function seedBooks() {
       cover_image: "https://covers.openlibrary.org/b/id/8231991-L.jpg",
       stock: 28,
       category: "Philosophy",
-      rating: 4.6
+      rating: 4.6,
+      createdAt: new Date().toISOString()
     },
     {
       title: "Harry Potter and the Sorcerer's Stone",
@@ -71,7 +77,8 @@ export async function seedBooks() {
       cover_image: "https://covers.openlibrary.org/b/id/7888781-L.jpg",
       stock: 40,
       category: "Fantasy",
-      rating: 4.9
+      rating: 4.9,
+      createdAt: new Date().toISOString()
     },
     {
       title: "The Lord of the Rings",
@@ -81,7 +88,8 @@ export async function seedBooks() {
       cover_image: "https://covers.openlibrary.org/b/id/6979867-L.jpg",
       stock: 35,
       category: "Fantasy",
-      rating: 4.9
+      rating: 4.9,
+      createdAt: new Date().toISOString()
     },
     {
       title: "Crime and Punishment",
@@ -91,7 +99,8 @@ export async function seedBooks() {
       cover_image: "https://covers.openlibrary.org/b/id/8231999-L.jpg",
       stock: 10,
       category: "Classic",
-      rating: 4.7
+      rating: 4.7,
+      createdAt: new Date().toISOString()
     },
     {
       title: "War and Peace",
@@ -101,7 +110,8 @@ export async function seedBooks() {
       cover_image: "https://covers.openlibrary.org/b/id/8232001-L.jpg",
       stock: 8,
       category: "History",
-      rating: 4.6
+      rating: 4.6,
+      createdAt: new Date().toISOString()
     },
     {
       title: "The Da Vinci Code",
@@ -111,7 +121,8 @@ export async function seedBooks() {
       cover_image: "https://covers.openlibrary.org/b/id/8240449-L.jpg",
       stock: 27,
       category: "Thriller",
-      rating: 4.3
+      rating: 4.3,
+      createdAt: new Date().toISOString()
     },
     {
       title: "The Kite Runner",
@@ -121,7 +132,8 @@ export async function seedBooks() {
       cover_image: "https://covers.openlibrary.org/b/id/8260195-L.jpg",
       stock: 19,
       category: "Drama",
-      rating: 4.6
+      rating: 4.6,
+      createdAt: new Date().toISOString()
     },
     {
       title: "A Brief History of Time",
@@ -131,7 +143,8 @@ export async function seedBooks() {
       cover_image: "https://covers.openlibrary.org/b/id/8260288-L.jpg",
       stock: 14,
       category: "Science",
-      rating: 4.5
+      rating: 4.5,
+      createdAt: new Date().toISOString()
     },
     {
       title: "The Shining",
@@ -141,7 +154,8 @@ export async function seedBooks() {
       cover_image: "https://covers.openlibrary.org/b/id/8220422-L.jpg",
       stock: 16,
       category: "Horror",
-      rating: 4.4
+      rating: 4.4,
+      createdAt: new Date().toISOString()
     },
     {
       title: "The Hunger Games",
@@ -151,7 +165,8 @@ export async function seedBooks() {
       cover_image: "https://covers.openlibrary.org/b/id/8231859-L.jpg",
       stock: 24,
       category: "Science Fiction",
-      rating: 4.6
+      rating: 4.6,
+      createdAt: new Date().toISOString()
     },
     {
       title: "The Fault in Our Stars",
@@ -161,7 +176,8 @@ export async function seedBooks() {
       cover_image: "https://covers.openlibrary.org/b/id/8259449-L.jpg",
       stock: 21,
       category: "Romance",
-      rating: 4.5
+      rating: 4.5,
+      createdAt: new Date().toISOString()
     },
     {
       title: "The Chronicles of Narnia",
@@ -171,7 +187,8 @@ export async function seedBooks() {
       cover_image: "https://covers.openlibrary.org/b/id/8232015-L.jpg",
       stock: 26,
       category: "Fantasy",
-      rating: 4.7
+      rating: 4.7,
+      createdAt: new Date().toISOString()
     },
     {
       title: "Moby Dick",
@@ -181,7 +198,8 @@ export async function seedBooks() {
       cover_image: "https://covers.openlibrary.org/b/id/8232017-L.jpg",
       stock: 9,
       category: "Classic",
-      rating: 4.3
+      rating: 4.3,
+      createdAt: new Date().toISOString()
     },
     {
       title: "Frankenstein",
@@ -191,7 +209,8 @@ export async function seedBooks() {
       cover_image: "https://covers.openlibrary.org/b/id/8232019-L.jpg",
       stock: 13,
       category: "Horror",
-      rating: 4.4
+      rating: 4.4,
+      createdAt: new Date().toISOString()
     },
     {
       title: "Dracula",
@@ -201,7 +220,8 @@ export async function seedBooks() {
       cover_image: "https://covers.openlibrary.org/b/id/8232021-L.jpg",
       stock: 11,
       category: "Horror",
-      rating: 4.3
+      rating: 4.3,
+      createdAt: new Date().toISOString()
     },
     {
       title: "The Girl with the Dragon Tattoo",
@@ -211,7 +231,8 @@ export async function seedBooks() {
       cover_image: "https://covers.openlibrary.org/b/id/8242728-L.jpg",
       stock: 17,
       category: "Thriller",
-      rating: 4.5
+      rating: 4.5,
+      createdAt: new Date().toISOString()
     },
     {
       title: "Brave New World",
@@ -221,7 +242,8 @@ export async function seedBooks() {
       cover_image: "https://covers.openlibrary.org/b/id/8775116-L.jpg",
       stock: 20,
       category: "Science Fiction",
-      rating: 4.4
+      rating: 4.4,
+      createdAt: new Date().toISOString()
     },
     {
       title: "The Catcher in the Rye",
@@ -231,7 +253,8 @@ export async function seedBooks() {
       cover_image: "https://covers.openlibrary.org/b/id/8231856-L.jpg",
       stock: 12,
       category: "Fiction",
-      rating: 4.2
+      rating: 4.2,
+      createdAt: new Date().toISOString()
     },
     {
       title: "The Odyssey",
@@ -241,7 +264,8 @@ export async function seedBooks() {
       cover_image: "https://covers.openlibrary.org/b/id/12645116-L.jpg",
       stock: 7,
       category: "Classic",
-      rating: 4.5
+      rating: 4.5,
+      createdAt: new Date().toISOString()
     },
     {
       title: "Gone Girl",
@@ -251,7 +275,8 @@ export async function seedBooks() {
       cover_image: "https://covers.openlibrary.org/b/id/8259299-L.jpg",
       stock: 22,
       category: "Thriller",
-      rating: 4.2
+      rating: 4.2,
+      createdAt: new Date().toISOString()
     },
     {
       title: "The Divine Comedy",
@@ -261,7 +286,8 @@ export async function seedBooks() {
       cover_image: "https://covers.openlibrary.org/b/id/12624308-L.jpg",
       stock: 5,
       category: "Classic",
-      rating: 4.6
+      rating: 4.6,
+      createdAt: new Date().toISOString()
     },
     {
       title: "The Picture of Dorian Gray",
@@ -271,7 +297,8 @@ export async function seedBooks() {
       cover_image: "https://covers.openlibrary.org/b/id/8231953-L.jpg",
       stock: 14,
       category: "Classic",
-      rating: 4.4
+      rating: 4.4,
+      createdAt: new Date().toISOString()
     },
     {
       title: "Dune",
@@ -281,7 +308,8 @@ export async function seedBooks() {
       cover_image: "https://covers.openlibrary.org/b/id/12726811-L.jpg",
       stock: 22,
       category: "Science Fiction",
-      rating: 4.6
+      rating: 4.6,
+      createdAt: new Date().toISOString()
     },
     {
       title: "The Bell Jar",
@@ -291,7 +319,8 @@ export async function seedBooks() {
       cover_image: "https://covers.openlibrary.org/b/id/12645119-L.jpg",
       stock: 11,
       category: "Drama",
-      rating: 4.3
+      rating: 4.3,
+      createdAt: new Date().toISOString()
     },
     {
       title: "Animal Farm",
@@ -301,7 +330,8 @@ export async function seedBooks() {
       cover_image: "https://covers.openlibrary.org/b/id/12624316-L.jpg",
       stock: 23,
       category: "Fiction",
-      rating: 4.5
+      rating: 4.5,
+      createdAt: new Date().toISOString()
     }
   ];
 
